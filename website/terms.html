@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AnonMail - Anonymous Email</title>
+  <link href="https://iosevka-webfonts.github.io/iosevka-fixed/iosevka-fixed.css" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css">
+  <!-- <link href="https://pvinis.github.io/iosevka-webfont/3.4.1/iosevka-fixed.css" rel="stylesheet" /> -->
+  <script>
+    function init() {
+      const canvas = document.getElementById('background-canvas');
+      const ctx = canvas.getContext('2d');
+
+      const w = canvas.width = document.body.offsetWidth;
+      const h = canvas.height = document.body.offsetHeight;
+      const cols = Math.floor(w / 20) + 1;
+      const ypos = Array(cols).fill(0);
+
+      ctx.fillStyle = '#696969ff';
+      ctx.fillRect(0, 0, w, h);
+
+      function matrix () {
+        // ctx.fillStyle = '#0001';
+        ctx.fillStyle = '#69696910'
+        ctx.fillRect(0, 0, w, h);
+        
+        ctx.fillStyle = '#00ff00';
+        ctx.font = '15pt monospace';
+        
+        ypos.forEach((y, ind) => {
+          const text = String.fromCharCode(Math.random() * 128);
+          const x = ind * 20;
+          ctx.fillText(text, x, y);
+          if (y > 100 + Math.random() * 20000) {
+            ypos[ind] = 0;
+          } else {
+            ypos[ind] = y + 20;
+          }
+        });
+      }
+      setInterval(matrix, 50); 
+
+      function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      resizeCanvas();
+      window.addEventListener('resize', resizeCanvas);
+    }
+  </script>
+</head>
+<body onload="init()">
+  <canvas id="background-canvas"></canvas>
+  <div style="overflow-y: auto; overflow-x: hidden; background-color: #595959F0;">
+    <div class="content" style="padding-left: 0px; padding-right: 0px;">
+      <header>
+        <div class="container-header" id="header">
+          <h1>An0nMail</h1>
+          <p>Anonymous communication for an exclusive circle.</p>
+        </div>
+      </header>
+
+      <main>
+        <div class="container">
+          <section class="terms">
+            <h2>an0nmail™ Terms of Service</h2>
+            <p>Welcome to an0nmail™, the most secure, anonymous, and occasionally ridiculous email service you’ll ever use. By signing up, you’re agreeing to our terms—and let’s be honest, you’re not actually going to read this, are you? That’s okay. Just know we’ve got your back (and maybe your cat memes).</p>
+          </section>
+
+
+          <section class="terms">
+            <h2>1. Agreement to the Rules</h2>
+            <p>By creating an account, using our services, or sending emails to your ex at 3 AM, you agree to follow these rules. If you don’t like them, you’re free to leave, but you can’t take the vibes with you.</p>
+          </section>
+
+
+          <section class="terms">
+            <h2>2. Eligibility</h2>
+            <p>To use an0nmail™, you must:
+              <ul>
+                <li>Be at least 13 years old or have the maturity level of someone who can handle internet drama.</li>
+                <li>Not use our service to spam, scam, or send chain emails about bad luck curses (we see you).</li>
+                <li>Have a working internet connection. Carrier pigeons don’t count.</li>
+              </ul>
+            </p>
+          </section>
+
+
+          <section class="terms">
+            <h2>3. Privacy Policy (a.k.a. “We’re Chill About Your Data”)</h2>
+            <p>We promise to:
+              <ul>
+                <li>Not read your emails. That’s creepy.</li>
+                <li>Not sell your data. We make enough selling cool stickers.</li>
+                <li>Probably not hand your info to aliens unless legally required.</li>
+              </ul>
+
+  Your secrets are safe with us…unless you type them in Comic Sans. Then we can’t help you.</p>
+          </section>
+
+
+          <section class="terms">
+            <h2>4. Use of Service</h2>
+            <p>You’re allowed to:
+              <ul>
+                <li>Send hilarious emails to your friends.</li>
+                <li>Pretend you’re a spy (but don’t actually be one).</li>
+                <li>Avoid your inbox for days because adulting is hard.</li>
+              </ul>
+
+  You’re NOT allowed to:
+              <ul>
+                <li>Start flame wars with strangers.</li>
+                <li>Send emails to yourself just to feel popular.</li>
+                <li>Challenge Elon Musk to a dance-off using our platform.</li>
+              </ul>
+            </p>
+          </section>
+
+
+          <section class="terms">
+            <h2>5. Fees and Payment</h2>
+            <p>an0nmail™ is mostly free, but if you want premium features (like sending emails with glitter explosions):
+              <ul>
+                <li>Payment must be in real money or Monopoly money, whichever has higher value in your economy.</li>
+                <li>We won’t refund you unless we feel like it.</li>
+              </ul>
+          </section>
+
+
+          <section class="terms">
+            <h2>6. Liability (or Lack Thereof)</h2>
+            <p>We are NOT responsible for:
+              <ul>
+                <li>Embarrassing typos that make you sound like a llama.</li>
+                <li>Reply-All disasters.</li>
+                <li>Any alien abduction that occurs while you’re logged in.</li>
+              </ul>
+            </p>
+          </section>
+
+
+          <section class="terms">
+            <h2>7. Termination of Service</h2>
+            <p>We can terminate your account if you:
+              <ul>
+                <li>Break these rules.</li>
+                <li>Try to hack us (nice try, Kevin).</li>
+                <li>Use the word “moist” too often.</li>
+              </ul>
+            </p>
+          </section>
+
+
+          <section class="terms">
+            <h2>8. Changes to These Terms</h2>
+            <p>We may update these terms whenever we feel like it. If you don’t check back, that’s on you. (Pro tip: We hide Easter eggs in the updates.)</p>
+          </section>
+
+
+          <section class="terms">
+            <h2>9. Contact Us</h2>
+            <p>Questions? Complaints? Marriage proposals? Shoot us a message at support@h3x.top or send a raven (bonus points for dramatic flair).
+
+  Thank you for choosing an0nmail™! We’re here to help you stay anonymous, professional, and slightly chaotic. ✉️</p>
+          </section>
+        </div>
+      </main>
+
+      <footer>
+        <div>
+          <p>&copy; 2024 AnonMail. All rights reserved.</p>
+          <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+        </div>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>

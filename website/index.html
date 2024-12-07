@@ -1,1 +1,86 @@
-foo or bar?
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>An0nMail - Anonymous Email</title>
+  <link href="https://iosevka-webfonts.github.io/iosevka-fixed/iosevka-fixed.css" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    function init() {
+      const canvas = document.getElementById('background-canvas');
+      const ctx = canvas.getContext('2d');
+
+      const w = canvas.width = document.body.offsetWidth;
+      const h = canvas.height = document.body.offsetHeight;
+      const cols = Math.floor(w / 20) + 1;
+      const ypos = Array(cols).fill(0);
+
+      ctx.fillStyle = '#696969ff';
+      ctx.fillRect(0, 0, w, h);
+
+      function matrix () {
+        ctx.fillStyle = '#69696910'
+        ctx.fillRect(0, 0, w, h);
+        
+        ctx.fillStyle = '#00ff00';
+        ctx.font = '15pt monospace';
+        
+        ypos.forEach((y, ind) => {
+          const text = String.fromCharCode(Math.random() * 128);
+          const x = ind * 20;
+          ctx.fillText(text, x, y);
+          if (y > 100 + Math.random() * 20000) {
+            ypos[ind] = 0;
+          } else {
+            ypos[ind] = y + 20;
+          }
+        });
+      }
+      setInterval(matrix, 50); 
+
+      function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      resizeCanvas();
+      window.addEventListener('resize', resizeCanvas);
+    }
+  </script>
+</head>
+<body onload="init()">
+  <canvas id="background-canvas"></canvas>
+  <div class="content" style="padding-left: 0px; padding-right: 0px; background-color: #595959F0;">
+    <header>
+      <div class="container-header" id="header">
+        <h1>An0nMail</h1>
+        <p>Anonymous communication for an exclusive circle.</p>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <section class="about">
+          <h2>Welcome to An0nMail</h2>
+          <p>An0nMail is a private anonymous email service available only to registered users by invitation. If you are part of our network, you already know the power of secure and anonymous communication.</p>
+        </section>
+        <section class="exclusive">
+          <h2>Exclusive Access</h2>
+          <p>Our service is invite-only to maintain privacy and exclusivity. If you have not been invited, please stay tuned for future opportunities.</p>
+        </section>
+        <section class="contact">
+          <h2>Need Assistance?</h2>
+          <p>If you’re a registered user and need help, please contact your invite provider for support.</p>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div>
+        <p>&copy; 2024 An0nMail. All rights reserved.</p>
+        <a href="terms.html">Terms of Service</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
